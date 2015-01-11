@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# sample usage: ./sstocksearch.sh auth-token [images or videos or audio] [keyword]
 # syntax: sstocksearch auth-token media-type keyword (search for micro stock media-type content based on keyword and auth-token)
 
 echo starting shutterstock API…
@@ -28,9 +28,9 @@ curl -D- -X GET -H "Authorization: Basic $1" -H "Content-Type: application/json"
 
 
 
-if [ "$2" == "image" ]; then
+if [ "$2" == "images" ]; then
  imagesearchapi $1 
-elif [ "$2" == "video" ]; then
+elif [ "$2" == "videos" ]; then
  videosearchapi $1 
 elif [ "$2" == "audio" ]; then
  audiosearchapi $1 
