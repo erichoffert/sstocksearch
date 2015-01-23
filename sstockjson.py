@@ -5,7 +5,7 @@ import requests
 
 # set the url for the video search along with the basic authorization
 
-url='https://api.shutterstock.com/v2/videos/search?per_page=5&query=ocean&view=full'
+url='https://api.shutterstock.com/v2/videos/search?per_page=10&query=ocean&view=full'
 head={'Authorization': 'Basic MmY3MTAwNjdmNWIwNGY0NDNmZWE6NWRiM2QyODYxZDQ4ZDlmZmU0YzcxMzQ5NDQ4MjM5MDBlZmYzNDU2MA=='}
 
 # make an http request (like curl, but here in Python) to the video search url using the basic authentication
@@ -24,6 +24,6 @@ print decoded['per_page']
 
 # loop over video search items and print out url etc.
 
-for x in range(0, decoded['per_page']-1):
+for x in range(0, decoded['per_page']):
   print "Video %s url = %s" % (x, decoded['data'][x]['assets']['preview_mp4'])
 
