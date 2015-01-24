@@ -55,5 +55,13 @@ print decoded['per_page']
 # loop over video search items and print out url etc.
 
 for x in range(0, decoded['per_page']):
-  print "Video %s url = %s" % (x, decoded['data'][x]['assets']['preview_mp4'])
+  if (sys.argv[1] == 'videos'):
+    print "Video %s url = %s" % (x, decoded['data'][x]['assets']['preview_mp4'])
+  elif (sys.argv[1] == 'audio'):
+    print "Audio %s url = %s" % (x, decoded['data'][x]['assets']['audio_mp3'])
+  eif (sys.argv[1] == 'images'):
+    print "Image %s url = %s" % (x, decoded['data'][x]['assets']['preview'])
+
+
+
 
