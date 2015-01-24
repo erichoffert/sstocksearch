@@ -56,18 +56,12 @@ print decoded['per_page']
 
 for x in range(0, decoded['per_page']):
   if (sys.argv[1] == 'videos'):
-    myString = decoded['data'][x]['assets']['preview_mp4']
-    #print "Video %s url = %s" % (x, decoded['data'][x]['assets']['preview_mp4'])
-    print "Video %s url = %s" % (x, re.findall('\S+http\S+',myString))
+    print "Video %s url = %s" % (x, decoded['data'][x]['assets']['preview_mp4'])
   elif (sys.argv[1] == 'audio'):
-    myString = decoded['data'][x]['assets']['preview_mp3']
-    #print "Audio %s url = %s" % (x, decoded['data'][x]['assets']['preview_mp3'])
-    print "Audio %s url = %s" % (x, re.findall('\S+http\S+',myString))
+    print "Audio %s url = %s" % (x, decoded['data'][x]['assets']['preview_mp3'])
   elif (sys.argv[1] == 'images'):
-    myString = decoded['data'][x]['assets']['preview']
-    #print "Image %s url = %s" % (x, decoded['data'][x]['assets']['preview'])
-    print "Image %s url = %s" % (x, re.findall('\S+http\S+',myString))
-    
+    print "Image %s url = %s" % (x, decoded['data'][x]['assets']['preview'])
+
     
 
     
