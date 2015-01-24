@@ -56,11 +56,11 @@ print decoded['per_page']
 
 for x in range(0, decoded['per_page']):
   if (sys.argv[1] == 'videos'):
-    print "Video %s url = %s" % (x, decoded['data'][x]['assets']['preview_mp4'])
+    print "Video %s url = %s" % (x, decoded['data'][x]['assets']['preview_mp4']['url'])
   elif (sys.argv[1] == 'audio'):
-    print "Audio %s url = %s" % (x, decoded['data'][x]['assets']['preview_mp3'])
+    print "Audio %s url = %s" % (x, decoded['data'][x]['assets']['preview_mp3']['url'])
   elif (sys.argv[1] == 'images'):
-    print "Image %s url = %s" % (x, decoded['data'][x]['assets']['preview'])
+    print "Image %s url = %s" % (x, decoded['data'][x]['assets']['preview']['url'])
 
     
 
