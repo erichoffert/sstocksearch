@@ -7,7 +7,7 @@ import sys
 # sample usage: ./sstocksearch.py [images or videos or audio] [keyword]
 # syntax: sstocksearch.py  media-type keyword (search for micro stock media-type content based on keyword)
 
-print "starting shutterstock API…"
+print "starting shutterstock API"
 S1="https://api.shutterstock.com/v2/"
 S2=sys.argv[1]
 S3="/search?per_page=1&query="
