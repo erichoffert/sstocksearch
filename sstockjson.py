@@ -3,6 +3,7 @@
 import json
 import requests #http get/post library, installed as Python packages via separate step
 import sys
+import re # regular expression matching including http link matching
 
 # sample usage: ./sstocksearch.py [images or videos or audio] [keyword]
 # syntax: sstocksearch.py  media-type keyword (search for micro stock media-type content based on keyword)
@@ -46,6 +47,7 @@ r.text
 
 decoded = byteify(json.loads(r.text))
 
+re.search("(?P<url>https?://[^\s]+)", myString).group("url")
 
 # print out json data as needed
 
@@ -56,11 +58,21 @@ print decoded['per_page']
 
 for x in range(0, decoded['per_page']):
   if (sys.argv[1] == 'videos'):
-    print "Video %s url = %s" % (x, decoded['data'][x]['assets']['preview_mp4'])
+    myString = decoded['data'][x]['assets']['preview_mp4']
+    #print "Video %s url = %s" % (x, decoded['data'][x]['assets']['preview_mp4'])
+    print "Video %s url = %s" % (x, re.search("(?P<url>https?://[^\s]+)", myString).group("url"))
   elif (sys.argv[1] == 'audio'):
-    print "Audio %s url = %s" % (x, decoded['data'][x]['assets']['preview_mp3'])
+    myString = decoded['data'][x]['assets']['preview_mp3']
+    #print "Audio %s url = %s" % (x, decoded['data'][x]['assets']['preview_mp3'])
+    print "Audio %s url = %s" % (x, re.search("(?P<url>https?://[^\s]+)", myString).group("url"))
   elif (sys.argv[1] == 'images'):
-    print "Image %s url = %s" % (x, decoded['data'][x]['assets']['preview'])
+    myString = decoded['data'][x]['assets']['preview']
+    #print "Image %s url = %s" % (x, decoded['data'][x]['assets']['preview'])
+    print "Image %s url = %s" % (x, re.search("(?P<url>https?://[^\s]+)", myString).group("url"))
+    
+    
+
+    
 
 
 
