@@ -1,7 +1,20 @@
 # import json parsing and http get requests packages
 
 import json
-import requests 
+import requests #http get/post library, installed as Python packages via separate step
+import sys
+
+# sample usage: ./sstocksearch.py [images or videos or audio] [keyword]
+# syntax: sstocksearch.py  media-type keyword (search for micro stock media-type content based on keyword)
+
+print "starting shutterstock API…"
+S1="https://api.shutterstock.com/v2/"
+S2=sys.argv[1]
+S3="/search?per_page=1&query="
+S4=sys.argv[2]
+S5="&view=full"
+S6=S1 + S2 + S3 + S4 + S5
+print "shutterstock api url %s" % (S6)
 
 def byteify(input):
     if isinstance(input, dict):
