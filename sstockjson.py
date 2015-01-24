@@ -28,7 +28,13 @@ def byteify(input):
 
 # set the url for the video search along with the basic authorization
 
-url='https://api.shutterstock.com/v2/videos/search?per_page=10&query=ocean&view=full'
+if (S6 != ""):
+    url = S6
+else:
+    url='https://api.shutterstock.com/v2/videos/search?per_page=10&query=ocean&view=full'
+    
+print "url = %s" % (url)
+
 head={'Authorization': 'Basic MmY3MTAwNjdmNWIwNGY0NDNmZWE6NWRiM2QyODYxZDQ4ZDlmZmU0YzcxMzQ5NDQ4MjM5MDBlZmYzNDU2MA=='}
 
 # make an http request (like curl, but here in Python) to the video search url using the basic authentication
