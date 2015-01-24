@@ -58,16 +58,15 @@ for x in range(0, decoded['per_page']):
   if (sys.argv[1] == 'videos'):
     myString = decoded['data'][x]['assets']['preview_mp4']
     #print "Video %s url = %s" % (x, decoded['data'][x]['assets']['preview_mp4'])
-    print "Video %s url = %s" % (x, re.search("(?P<url>https?://[^\s]+)", myString).group("url"))
+    print "Video %s url = %s" % (x, re.findall('\S+http\S+',myString))
   elif (sys.argv[1] == 'audio'):
     myString = decoded['data'][x]['assets']['preview_mp3']
-    myString = re.search("(?P<url>http?://[^\s]+)", myString).group("url")
     #print "Audio %s url = %s" % (x, decoded['data'][x]['assets']['preview_mp3'])
-    print "Audio %s url = %s" % (x, myString)
+    print "Audio %s url = %s" % (x, (x, re.findall('\S+http\S+',myString))
   elif (sys.argv[1] == 'images'):
     myString = decoded['data'][x]['assets']['preview']
     #print "Image %s url = %s" % (x, decoded['data'][x]['assets']['preview'])
-    print "Image %s url = %s" % (x, re.search("(?P<url>https?://[^\s]+)", myString).group("url"))
+    print "Image %s url = %s" % (x, (x, re.findall('\S+http\S+',myString))
     
     
 
