@@ -59,8 +59,9 @@ print decoded['per_page']
 for x in range(0, decoded['per_page']):
   if (sys.argv[1] == 'videos'):
     myString = decoded['data'][x]['assets']['preview_mp4']
+    myString = re.search("(?P<url>https?://[^\s]+)", myString).group("url")
     #print "Video %s url = %s" % (x, decoded['data'][x]['assets']['preview_mp4'])
-    print "Video %s url = %s" % (x, re.search("(?P<url>https?://[^\s]+)", myString).group("url"))
+    print "Video %s url = %s" % (x, myString)
   elif (sys.argv[1] == 'audio'):
     myString = decoded['data'][x]['assets']['preview_mp3']
     #print "Audio %s url = %s" % (x, decoded['data'][x]['assets']['preview_mp3'])
