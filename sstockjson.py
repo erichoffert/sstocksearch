@@ -2,7 +2,7 @@
 
 import json
 import requests 
-import ast
+
 
 # set the url for the video search along with the basic authorization
 
@@ -16,8 +16,7 @@ r.text
 
 # load the json data from the http data stream returned from the http url
 
-#decoded = json.loads(r.text)
-decoded = ast.literal_eval(r.text)
+decoded = json.loads(r.text)
 
 
 # print out json data as needed
