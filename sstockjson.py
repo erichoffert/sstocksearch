@@ -3,6 +3,15 @@
 import json
 import requests 
 
+def byteify(input):
+    if isinstance(input, dict):
+        return {byteify(key):byteify(value) for key,value in input.iteritems()}
+    elif isinstance(input, list):
+        return [byteify(element) for element in input]
+    elif isinstance(input, unicode):
+        return input.encode('utf-8')
+    else:
+        return input
 
 # set the url for the video search along with the basic authorization
 
@@ -16,7 +25,7 @@ r.text
 
 # load the json data from the http data stream returned from the http url
 
-decoded = json.loads(r.text)
+decoded = byteify(json.loads(r.text))
 
 
 # print out json data as needed
