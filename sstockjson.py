@@ -15,7 +15,9 @@ r.text
 
 # load the json data from the http data stream returned from the http url
 
-decoded = json.loads(r.text)
+#decoded = json.loads(r.text)
+decoded = ast.literal_eval(r.text)
+
 
 # print out json data as needed
 
