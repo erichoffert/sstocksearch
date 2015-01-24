@@ -10,7 +10,7 @@ import sys
 print "starting shutterstock API"
 S1="https://api.shutterstock.com/v2/"
 S2=sys.argv[1]
-S3="/search?per_page=1&query="
+S3="/search?per_page=10&query="
 S4=sys.argv[2]
 S5="&view=full"
 S6=S1 + S2 + S3 + S4 + S5
