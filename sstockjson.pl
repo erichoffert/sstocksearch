@@ -62,6 +62,7 @@ if ($resp->is_success) {
      }
      else {
           print "Video url[$i] = " . $decoded->{'data'}[$i]{'assets'}{'preview_mp4'}{'url'} . "\n";
+     }
     }
 }
 else {
