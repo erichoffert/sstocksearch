@@ -23,7 +23,7 @@ my $ua = LWP::UserAgent->new;
 
 # set the url for the http request
 
-my $server_endpoint = $S6;
+my $server_endpoint = $s6;
  
 # set the custom HTTP request header fields for content-type and basic authorization
 
