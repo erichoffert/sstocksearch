@@ -49,7 +49,7 @@ if ($resp->is_success) {
     print "utf-8 encoded API response", $json_messageutf8, "\n";
     my $decoded = decode_json($json_messageutf8);
     # This is a Perl example of parsing a JSON object.
-    my $per_page = decoded->{'per_page'};
+    my $per_page = $decoded->{'per_page'};
     print "Number of results:", $per_page, "\n";
     foreach my $i (0..$per_page) {
      if ($s2 eq "images")
