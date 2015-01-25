@@ -52,7 +52,8 @@ if ($resp->is_success) {
     # This is a Perl example of parsing a JSON object.
     print "Per page = " . $decoded->{'page'} . "\n";
     print "Total count = " . $decoded->{'total_count'} . "\n";
-    print "Data = " . $decoded->{'data'} . "\n";
+    print "Data [0] = " . $decoded->{'data'}[0] . "\n";
+    print "Data {0} = " . $decoded->{'data'}{0} . "\n";
     print "Video url = " . $decoded->{'data'}{'0'}{'assets'}{'preview_mp4'}{'url'} . "\n";
 }
 else {
