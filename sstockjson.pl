@@ -55,9 +55,9 @@ if ($resp->is_success) {
      if ($s2 eq "images")
           print "Image url[",$i,"] = " . $decoded->{'data'}[$i]{'assets'}{'preview'}{'url'} . "\n";
      elif ($s2 eq "audio")
-          print "Audio url[",$i,"] = " = " . $decoded->{'data'}[$i]{'assets'}{'preview_mp3'}{'url'} . "\n";
+          print "Audio url[",$i,"] = " . $decoded->{'data'}[$i]{'assets'}{'preview_mp3'}{'url'} . "\n";
      else
-          print "Video url[",$i,"] = " = " . $decoded->{'data'}[$i]{'assets'}{'preview_mp4'}{'url'} . "\n";
+          print "Video url[",$i,"] = " . $decoded->{'data'}[$i]{'assets'}{'preview_mp4'}{'url'} . "\n";
     }
 }
 else {
