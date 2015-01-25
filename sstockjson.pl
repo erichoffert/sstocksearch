@@ -48,7 +48,7 @@ if ($resp->is_success) {
     # encode the data as utf-8 and print it
     my $json_messageutf8 = encode("utf8",$json_message);
     print "utf-8 encoded API response", $json_messageutf8, "\n";
-    my $decoded = decode_json($json_message);
+    my $decoded = decode_json($json_messageutf8);
     # This is a Perl example of parsing a JSON object.
     print "Video url = " . $decoded->{'data'}{'0'}{'assets'}{'preview_mp4'}{'url'} . "\n";
 }
