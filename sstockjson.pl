@@ -47,13 +47,3 @@ else {
 my $message-utf8 = encode_utf8($message);
 
 print "utf-8 encoded message $message\n";
-
-
-
-    
-
-    
-
-
-
-
