@@ -53,8 +53,8 @@ if ($resp->is_success) {
     print "Per page = " . $decoded->{'page'} . "\n";
     print "Total count = " . $decoded->{'total_count'} . "\n";
     print "Data [0] = " . $decoded->{'data'}[0] . "\n";
-    print "Data {0} = " . $decoded->{'data'}{0} . "\n";
-    print "Video url = " . $decoded->{'data'}{'assets'}{'preview_mp4'}{'url'} . "\n";
+    print "Video url = " . $decoded->{'data'}[0]{'assets'}{'preview_mp4'}{'url'} . "\n";
+    print "Video url = " . $decoded->{'data'}['0']{'assets'}{'preview_mp4'}{'url'} . "\n";
 }
 else {
     print "HTTP GET error code: ", $resp->code, "\n";
