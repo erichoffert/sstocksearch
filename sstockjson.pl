@@ -11,7 +11,7 @@ use Encode qw(decode encode);
 # JSON package for parsing json data streams
 use JSON qw( decode_json );
 
-# sample usage: ./sstockjson.pl [images or videos or audio] [keyword]
+# sample usage: ./sstockjson.pl [images or videos or audio] [keyword] 
 # syntax: sstockjson.pl  media-type keyword (search for micro stock media-type content based on keyword)
 
 print "starting shutterstock API\n";
@@ -44,20 +44,26 @@ print ("http basic authorization request\n", $req->header('authorization'), "\n"
 my $resp = $ua->request($req);
 if ($resp->is_success) {
     my $json_message = $resp->decoded_content;
-    print "Received API response: ",$json_message,"\n\n\n\n\n";
     # encode the data as utf-8 and print it
     my $json_messageutf8 = encode("utf8",$json_message);
     print "utf-8 encoded API response", $json_messageutf8, "\n";
     my $decoded = decode_json($json_messageutf8);
     # This is a Perl example of parsing a JSON object.
-    print "Per page = " . $decoded->{'page'} . "\n";
-    print "Total count = " . $decoded->{'total_count'} . "\n";
-    print "Data [0] = " . $decoded->{'data'}[0] . "\n";
-    print "Video url = " . $decoded->{'data'}[0]{'assets'}{'preview_mp4'}{'url'} . "\n";
+    my $per_page = decoded->{'per_page'};
+    print "Number of results:", $per_page, "\n";
+    foreach my $i (0..$per_page) {
+     if ($s2 eq "images")
+          print "Image url[",$i,"] = " . $decoded->{'data'}[$i]{'assets'}{'preview'}{'url'} . "\n";
+     elif ($s2 eq "audio")
+          print "Audio url[",$i,"] = " = " . $decoded->{'data'}[$i]{'assets'}{'preview_mp3'}{'url'} . "\n";
+     else
+          print "Video url[",$i,"] = " = " . $decoded->{'data'}[$i]{'assets'}{'preview_mp4'}{'url'} . "\n";
+    }
 }
 else {
     print "HTTP GET error code: ", $resp->code, "\n";
     print "HTTP GET error message: ", $resp->message, "\n";
 }
+
 
 
