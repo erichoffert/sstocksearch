@@ -8,14 +8,14 @@ use Encode qw(decode encode);
 # sample usage: ./sstockjson.pl [images or videos or audio] [keyword]
 # syntax: sstockjson.pl  media-type keyword (search for micro stock media-type content based on keyword)
 
-print "starting shutterstock API";
+print "starting shutterstock API\n";
 my $s1="https://api.shutterstock.com/v2/";
 my $s2=$ARGV[0];
 my $s3="/search?per_page=1&query=";
 my $s4=$ARGV[1];
 my $s5="&view=full";
-my $s6=$s1 + $s2 + $s3 + $s4 + $s5;
-print "shutterstock api url $s6";
+my $s6=$s1 . $s2 . $s3 . $s4 . $s5;
+print "shutterstock api url $s6\n";
 
 # initialize the user agent for the http request to query for media content
 
