@@ -52,8 +52,6 @@ if ($resp->is_success) {
     my $per_page = $decoded->{'per_page'};
     print "Number of results:", $per_page, "\n";
     foreach my $i (0..$per_page-1) {
-     print "Video url $i = ";
-     print $decoded->{'data'}[$i]{'assets'}{'preview_mp4'}{'url'}."\n";
      if ($s2 eq 'images') {
           print "Image url[$i] = " . $decoded->{'data'}[$i]{'assets'}{'preview'}{'url'} . "\n";
      }
