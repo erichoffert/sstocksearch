@@ -15,7 +15,7 @@ my $s3="/search?per_page=1&query=";
 my $s4=$ARGV[1];
 my $s5="&view=full";
 my $s6=$s1 . $s2 . $s3 . $s4 . $s5;
-print "shutterstock api url $s6\n";
+print "shutterstock api url\n", $s6, "\n";
 
 # initialize the user agent for the http request to query for media content
 
@@ -29,7 +29,9 @@ my $server_endpoint = $s6;
 
 my $req = HTTP::Request->new(GET => $server_endpoint);
 $req->header('content-type' => 'application/json');
-$req->header('authorization' => 'Basic MmY3MTAwNjdmNWIwNGY0NDNmZWE6NWRiM2QyODYxZDQ4ZDlmZmU0YzcxMzQ5NDQ4MjM5MDBlZmYzNDU2MA==');
+$req->header('Authorization' => 'Basic MmY3MTAwNjdmNWIwNGY0NDNmZWE6NWRiM2QyODYxZDQ4ZDlmZmU0YzcxMzQ5NDQ4MjM5MDBlZmYzNDU2MA==');
+
+print ("http request", $req, "\n");
 
 # make the http request with header fields and print the successful or failed response 
 
