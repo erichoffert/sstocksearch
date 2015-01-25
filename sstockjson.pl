@@ -51,7 +51,7 @@ if ($resp->is_success) {
     # This is a Perl example of parsing a JSON object.
     my $per_page = $decoded->{'per_page'};
     print "Number of results:", $per_page, "\n";
-    foreach my $i (0..$per_page) {
+    foreach my $i (0..$per_page-1) {
      print "index $i\n";
      print $decoded->{'data'}[0]{'assets'}{'preview_mp4'}{'url'};
      print $decoded->{'data'}[$i]{'assets'}{'preview_mp4'}{'url'};
