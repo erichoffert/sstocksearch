@@ -43,14 +43,16 @@ print ("http basic authorization request\n", $req->header('authorization'), "\n"
 
 my $resp = $ua->request($req);
 if ($resp->is_success) {
+    # the http response is encoded as json data
     my $json_message = $resp->decoded_content;
-    # encode the data as utf-8 and print it
+    # encode the jsondata as utf-8 
     my $json_messageutf8 = encode("utf8",$json_message);
-    print "utf-8 encoded API response", $json_messageutf8, "\n";
+    #print "utf-8 encoded API response", $json_messageutf8, "\n";
     my $decoded = decode_json($json_messageutf8);
-    # This is a Perl example of parsing a JSON object.
+    # access the utf 8 encoded json data to obtain the number of results per page.
     my $per_page = $decoded->{'per_page'};
     print "Number of results:", $per_page, "\n";
+    # print out the media URL for the selected media type
     foreach my $i (0..$per_page-1) {
      if ($s2 eq 'images') {
           print "Image url[$i] = " . $decoded->{'data'}[$i]{'assets'}{'preview'}{'url'} . "\n";
