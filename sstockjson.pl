@@ -1,10 +1,11 @@
-# import http::request package
+#!/usr/bin/perl
+# import http::request perl package, installed from cpan via install http::request
 
 use strict
 use LWP::UserAgent;
 
 # sample usage: ./sstockjson.pl [images or videos or audio] [keyword]
-# syntax: sstockjson.py  media-type keyword (search for micro stock media-type content based on keyword)
+# syntax: sstockjson.pl  media-type keyword (search for micro stock media-type content based on keyword)
 
 print "starting shutterstock API"
 $S1="https://api.shutterstock.com/v2/"
