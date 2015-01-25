@@ -8,6 +8,8 @@ use LWP::UserAgent;
 use Mozilla::CA; 
 # Encode package is needed for conversions to/from utf-8, Unicode etc.
 use Encode qw(decode encode);
+# JSON package for parsing json data streams
+use JSON qw( decode_json );
 
 # sample usage: ./sstockjson.pl [images or videos or audio] [keyword]
 # syntax: sstockjson.pl  media-type keyword (search for micro stock media-type content based on keyword)
@@ -41,11 +43,15 @@ print ("http basic authorization request\n", $req->header('authorization'), "\n"
 
 my $resp = $ua->request($req);
 if ($resp->is_success) {
-    my $message = $resp->decoded_content;
-    print "Received API response: ",$message,"\n\n\n\n\n";
+    my $json_message = $resp->decoded_content;
+    print "Received API response: ",$json_message,"\n\n\n\n\n";
     # encode the data as utf-8 and print it
-    my $messageutf8 = encode("utf8",$message);
-    print "utf-8 encoded API response", $messageutf8, "\n";
+    my $json_messageutf8 = encode("utf8",$json_message);
+    print "utf-8 encoded API response", $json_messageutf8, "\n";
+    my $decoded = decode_json($json_message);
+    # This is a Perl example of parsing a JSON object.
+    decoded['data'][x]['assets']['preview_mp4']['url']
+    print "Video url = " . $decoded->{'data'}{'0'}{'assets'}{'preview_mp4'}{'url'} . "\n";
 }
 else {
     print "HTTP GET error code: ", $resp->code, "\n";
