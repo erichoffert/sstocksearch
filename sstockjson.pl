@@ -2,8 +2,11 @@
 # import http::request perl package, installed from cpan via install http::request
 
 use strict;
+# UserAgent package needed to make http requests from Perl
 use LWP::UserAgent;
+# Mozilla certificate package is needed for https to function, see https://github.com/vsespb/mt-aws-glacier/issues/87
 use Mozilla::CA; 
+# Encode package is needed for conversions to/from utf-8, Unicode etc.
 use Encode qw(decode encode);
 
 # sample usage: ./sstockjson.pl [images or videos or audio] [keyword]
@@ -39,10 +42,10 @@ print ("http basic authorization request\n", $req->header('authorization'), "\n"
 my $resp = $ua->request($req);
 if ($resp->is_success) {
     my $message = $resp->decoded_content;
-    print "Received reply: $message\n";
+    print "Received reply: ",$message,"\n";
     # encode the data as utf-8 and print it
-    my $messageutf8 = encode_utf8($message);
-    print "utf-8 encoded message $message\n";
+    my $messageutf8 = encode("utf8",$message);
+    print "utf-8 encoded message", $messageutf8, "\n";
 }
 else {
     print "HTTP GET error code: ", $resp->code, "\n";
