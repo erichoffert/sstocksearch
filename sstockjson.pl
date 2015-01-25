@@ -17,7 +17,7 @@ use JSON qw( decode_json );
 print "starting shutterstock API\n";
 my $s1="https://api.shutterstock.com/v2/";
 my $s2=$ARGV[0];
-my $s3="/search?per_page=1&query=";
+my $s3="/search?per_page=5&query=";
 my $s4=$ARGV[1];
 my $s5="&view=full";
 my $s6=$s1 . $s2 . $s3 . $s4 . $s5;
