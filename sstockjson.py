@@ -11,7 +11,7 @@ import re # regular expression matching including http link matching
 print "starting shutterstock API"
 S1="https://api.shutterstock.com/v2/"
 S2=sys.argv[1]
-S3="/search?per_page=15&query="
+S3="/search?per_page=20&query="
 S4=sys.argv[2]
 S5="&view=full"
 S6=S1 + S2 + S3 + S4 + S5
