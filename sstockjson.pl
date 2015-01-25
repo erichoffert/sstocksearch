@@ -53,11 +53,11 @@ if ($resp->is_success) {
     print "Number of results:", $per_page, "\n";
     foreach my $i (0..$per_page) {
      if ($s2 eq "images")
-          print "Image url[",$i,"] = " . $decoded->{'data'}[$i]{'assets'}{'preview'}{'url'} . "\n";
+          print "Image url[".$i."] = " . $decoded->{'data'}[$i]{'assets'}{'preview'}{'url'} . "\n";
      elsif ($s2 eq "audio")
-          print "Audio url[",$i,"] = " . $decoded->{'data'}[$i]{'assets'}{'preview_mp3'}{'url'} . "\n";
+          print "Audio url[".$i."] = " . $decoded->{'data'}[$i]{'assets'}{'preview_mp3'}{'url'} . "\n";
      else
-          print "Video url[",$i,"] = " . $decoded->{'data'}[$i]{'assets'}{'preview_mp4'}{'url'} . "\n";
+          print "Video url[".$i."] = " . $decoded->{'data'}[$i]{'assets'}{'preview_mp4'}{'url'} . "\n";
     }
 }
 else {
