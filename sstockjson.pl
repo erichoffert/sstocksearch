@@ -29,9 +29,9 @@ my $server_endpoint = $s6;
 
 my $req = HTTP::Request->new(GET => $server_endpoint);
 #$req->header('content-type' => 'application/json');
-$req->default_header(Authorization => "Basic " . "MmY3MTAwNjdmNWIwNGY0NDNmZWE6NWRiM2QyODYxZDQ4ZDlmZmU0YzcxMzQ5NDQ4MjM5MDBlZmYzNDU2MA==");
+$req->header(Authorization => "Basic " . "MmY3MTAwNjdmNWIwNGY0NDNmZWE6NWRiM2QyODYxZDQ4ZDlmZmU0YzcxMzQ5NDQ4MjM5MDBlZmYzNDU2MA==");
 
-print ("http basic authorization request", $req->default_header('Authorization'), "\n");
+print ("http basic authorization request", $req->header('Authorization'), "\n");
 
 # make the http request with header fields and print the successful or failed response 
 
