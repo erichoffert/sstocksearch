@@ -37,11 +37,12 @@ my $req = HTTP::Request->new(GET => $server_endpoint);
 $req->header('content-type' => 'application/json');
 $req->header('authorization' => 'Basic ' . 'MmY3MTAwNjdmNWIwNGY0NDNmZWE6NWRiM2QyODYxZDQ4ZDlmZmU0YzcxMzQ5NDQ4MjM5MDBlZmYzNDU2MA==');
 
-print ("http basic authorization request\n", $req->header('authorization'), "\n");
+#print ("http basic authorization request\n", $req->header('authorization'), "\n");
 
 # make the http request with header fields and print the successful or failed response 
 
 my $resp = $ua->request($req);
+
 if ($resp->is_success) {
     # the http response is encoded as json data
     my $json_message = $resp->decoded_content;
