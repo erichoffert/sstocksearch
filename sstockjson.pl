@@ -42,10 +42,10 @@ print ("http basic authorization request\n", $req->header('authorization'), "\n"
 my $resp = $ua->request($req);
 if ($resp->is_success) {
     my $message = $resp->decoded_content;
-    print "Received reply: ",$message,"\n";
+    print "Received API response: ",$message,"\n\n\n\n\n";
     # encode the data as utf-8 and print it
     my $messageutf8 = encode("utf8",$message);
-    print "utf-8 encoded message", $messageutf8, "\n";
+    print "utf-8 encoded API response", $messageutf8, "\n";
 }
 else {
     print "HTTP GET error code: ", $resp->code, "\n";
